@@ -2,294 +2,280 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROMIKU Catalog · 产品画册入口</title>
+  <title>ROMIKU 产品画册 · Catalog Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="ROMIKU 指甲油胶与美甲工具产品画册入口 · ROMIKU Gel Polish & Nail Tools Catalog Entry" />
   <style>
     * {
       box-sizing: border-box;
+    }
+    html, body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+      background: radial-gradient(circle at top, #f3e8ff, #e5f0ff, #f5f5f7);
+      color: #111827;
       min-height: 100vh;
+    }
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #f3e8ff, #e5f0ff, #f5f5f7);
-      color: #111827;
       padding: 16px;
     }
-
     .card {
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
-      max-width: 480px;
       width: 100%;
-      padding: 28px 24px 24px;
-      text-align: left;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+      padding: 24px 22px 20px;
       position: relative;
       overflow: hidden;
     }
-
     .card::before {
       content: "";
       position: absolute;
       right: -60px;
-      top: -60px;
-      width: 160px;
-      height: 160px;
-      background: radial-gradient(circle, #c4b5fd, #6366f1);
-      opacity: 0.22;
-      filter: blur(4px);
+      top: -80px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at center, #e0ecff, #f9f5ff);
+      opacity: 0.9;
+      filter: blur(2px);
     }
-
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
     .brand {
-      font-size: 14px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.25em;
+      font-size: 13px;
+      font-weight: 500;
+      color: #4b5563;
       text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 6px;
     }
-
-    .title {
-      font-size: 22px;
-      font-weight: 650;
-      margin-bottom: 10px;
-      color: #111827;
+    .catalog-tag {
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
     }
-
-    .subtitle {
-      font-size: 14px;
-      color: #6b7280;
-      line-height: 1.5;
-      margin-bottom: 20px;
+    .pill-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
-
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
+      font-size: 13px;
+      padding: 2px 10px;
       border-radius: 999px;
-      background: rgba(79, 70, 229, 0.06);
-      color: #4f46e5;
-      font-size: 12px;
-      margin-bottom: 10px;
+      background: #eff6ff;
+      color: #1d4ed8;
     }
-
     .pill-dot {
+      display: inline-block;
       width: 8px;
       height: 8px;
       border-radius: 999px;
       background: #22c55e;
     }
-
-    .btn {
+    .lang-toggle {
+      margin-left: auto;
+      background: #111827;
+      border-radius: 999px;
+      padding: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #e5e7eb;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active {
+      background: #f9fafb;
+      color: #111827;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+    .subtitle {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-button {
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #f9fafb;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 550;
-      color: #ffffff;
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.35);
-      margin-top: 4px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        opacity 0.12s ease;
+      gap: 8px;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        filter 0.15s ease;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(79, 70, 229, 0.45);
+    .cta-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+      filter: brightness(0.96);
     }
-
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.3);
-      opacity: 0.9;
+    .cta-icon {
+      font-size: 18px;
     }
-
-    .btn-icon {
-      font-size: 16px;
-    }
-
-    .tips {
-      margin-top: 10px;
+    .tip {
+      margin-top: 14px;
       font-size: 12px;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .lang-toggle {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      display: inline-flex;
-      gap: 4px;
-      padding: 3px;
-      border-radius: 999px;
-      background: rgba(243, 244, 246, 0.92);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(209, 213, 219, 0.7);
-    }
-
-    .lang-btn {
-      border: none;
-      outline: none;
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 11px;
-      cursor: pointer;
-      background: transparent;
+      line-height: 1.7;
       color: #6b7280;
-      transition: background 0.12s ease, color 0.12s ease;
+      position: relative;
+      z-index: 1;
     }
-
-    .lang-btn.active {
-      background: #111827;
-      color: #f9fafb;
+    .tip strong {
+      color: #111827;
+      font-weight: 600;
     }
-
-    .section {
-      display: none;
+    .footer-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #9ca3af;
     }
-
-    .section.active {
-      display: block;
-    }
-
-    @media (max-width: 480px) {
+    @media (max-width: 390px) {
       .card {
-        padding: 22px 18px 20px;
-        border-radius: 18px;
+        padding: 20px 18px 18px;
+        border-radius: 20px;
       }
-      .title {
-        font-size: 20px;
+      h1 {
+        font-size: 22px;
       }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="lang-toggle">
-      <button class="lang-btn" data-lang="zh">中文</button>
-      <button class="lang-btn" data-lang="en">EN</button>
+    <div class="badge-row">
+      <span class="brand">ROMIKU · NAIL</span>
+      <span class="catalog-tag" data-lang="zh">画册入口 · Catalog Entry</span>
+      <span class="catalog-tag" data-lang="en" style="display: none;">Catalog Entry</span>
     </div>
 
-    <div class="brand">ROMIKU · NAIL</div>
-
-    <div id="sec-zh" class="section">
-      <div class="pill">
+    <div class="pill-row">
+      <span class="pill">
         <span class="pill-dot"></span>
-        <span>画册入口 · Catalog Entry</span>
+        <span data-lang="zh">画册入口</span>
+        <span data-lang="en" style="display:none;">Catalog Entry</span>
+      </span>
+
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang-switch="zh">中文</button>
+        <button class="lang-btn" data-lang-switch="en">EN</button>
       </div>
-      <h1 class="title">ROMIKU 产品画册</h1>
-      <p class="subtitle">
-        我们正在为你打开 Canva 画册链接。这里包含 ROMIKU 指甲油胶、美甲工具等系列产品信息，方便你快速浏览与选型。
-      </p>
-      <button class="btn" id="openCatalogZh">
-        <span class="btn-icon">📖</span>
-        <span>立即进入画册</span>
-      </button>
-      <p class="tips">
-        如微信出现“将要访问 / 继续访问”提示，点击
-        <strong>继续访问</strong> 即可正常查看画册。
-      </p>
     </div>
 
-    <div id="sec-en" class="section">
-      <div class="pill">
-        <span class="pill-dot"></span>
-        <span>Catalog Entry · ROMIKU</span>
-      </div>
-      <h1 class="title">ROMIKU Product Catalog</h1>
-      <p class="subtitle">
-        We are opening the Canva catalog for you. Browse ROMIKU's gel polish
-        and nail tool collections, designed for professional B2B buyers.
-      </p>
-      <button class="btn" id="openCatalogEn">
-        <span class="btn-icon">📖</span>
-        <span>Open catalog now</span>
+    <h1 data-lang="zh">ROMIKU 产品画册</h1>
+    <h1 data-lang="en" style="display:none;">ROMIKU Product Catalog</h1>
+
+    <p class="subtitle" data-lang="zh">
+      我们正在为你打开 Canva 画册链接。这里包含 ROMIKU 指甲油胶、美甲工具等系列产品信息，方便你快速浏览与选型。
+    </p>
+    <p class="subtitle" data-lang="en" style="display:none;">
+      We are opening the Canva catalog for you. Here you can browse ROMIKU gel polish and nail tool collections for quick selection.
+    </p>
+
+    <div class="cta-wrapper">
+      <button class="cta-button" onclick="openCatalog()">
+        <span class="cta-icon">📖</span>
+        <span data-lang="zh">立即进入画册</span>
+        <span data-lang="en" style="display:none;">Open Catalog Now</span>
       </button>
-      <p class="tips">
-        If WeChat shows a security notice, simply tap
-        <strong>"Continue"</strong> to view the catalog normally.
-      </p>
     </div>
+
+    <!-- 中文提示 -->
+    <p class="tip" data-lang="zh">
+      如微信出现 <strong>“将要访问 / 继续访问”</strong> 提示，请点击
+      <strong>【继续访问】</strong> 即可正常查看画册；<br>
+      如果仍然打不开，你也可以 <strong>长按上方网址复制</strong>，再在手机浏览器中打开查看。
+      <span class="footer-note">（为保证体验，本页面不会自动跳转，需要你手动点击按钮进入。）</span>
+    </p>
+
+    <!-- 英文提示 -->
+    <p class="tip" data-lang="en" style="display:none;">
+      If WeChat shows a <strong>“Visit this page / Continue”</strong> dialog,
+      simply tap <strong>“Continue”</strong> to open the catalog.<br>
+      If it still doesn’t open, you can <strong>long-press the URL above to copy it</strong>,
+      then open it directly in your mobile browser.
+      <span class="footer-note">(For a better experience, this page does not auto-redirect. Please tap the button above to enter the catalog.)</span>
+    </p>
   </div>
 
   <script>
-    // 你的 Canva 画册链接（只读）
-    const catalogUrl =
-      "https://www.canva.com/design/DAG3_x_dZWU/NHnOvslmeg8A7y8FKxcc3Q/view?utm_content=DAG3_x_dZWU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0ac17c881c";
+    // 1. 在这里替换成你的 Canva 画册链接
+    const CATALOG_URL = 'https://www.canva.com/design/XXXXXXXXXXXXXXXX'; 
 
-    const secZh = document.getElementById("sec-zh");
-    const secEn = document.getElementById("sec-en");
-    const langBtns = document.querySelectorAll(".lang-btn");
-
-    function setLang(lang) {
-      if (lang === "zh") {
-        secZh.classList.add("active");
-        secEn.classList.remove("active");
-      } else {
-        secEn.classList.add("active");
-        secZh.classList.remove("active");
-      }
-      langBtns.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
-      // 记住选择
-      try {
-        localStorage.setItem("romiku_catalog_lang", lang);
-      } catch (e) {}
+    function openCatalog() {
+      // 在微信里通常会内嵌打开；target="_blank" 方便在外部浏览器中打开
+      window.location.href = CATALOG_URL;
+      // 或者：window.open(CATALOG_URL, '_blank');
     }
 
-    // 语言切换按钮
-    langBtns.forEach((btn) => {
-      btn.addEventListener("click", () => setLang(btn.dataset.lang));
+    // 2. 语言切换逻辑
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const langElems = document.querySelectorAll('[data-lang]');
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetLang = btn.getAttribute('data-lang-switch');
+
+        // 按钮样式
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // 所有带 data-lang 的元素，显示对应语言
+        langElems.forEach(el => {
+          const lang = el.getAttribute('data-lang');
+          el.style.display = (lang === targetLang) ? '' : 'none';
+        });
+      });
     });
-
-    // 根据浏览器 / 本地记录自动选择语言
-    (function initLang() {
-      let saved;
-      try {
-        saved = localStorage.getItem("romiku_catalog_lang");
-      } catch (e) {}
-      if (saved === "zh" || saved === "en") {
-        setLang(saved);
-        return;
-      }
-      const navLang = (navigator.language || navigator.userLanguage || "")
-        .toLowerCase();
-      if (navLang.startsWith("zh")) {
-        setLang("zh");
-      } else {
-        setLang("en");
-      }
-    })();
-
-    // 按钮点击跳转
-    document
-      .getElementById("openCatalogZh")
-      .addEventListener("click", () => (window.location.href = catalogUrl));
-    document
-      .getElementById("openCatalogEn")
-      .addEventListener("click", () => (window.location.href = catalogUrl));
-
-    // 自动跳转（1 秒），同时保留按钮以防万一
-    setTimeout(() => {
-      window.location.href = catalogUrl;
-    }, 1000);
   </script>
 </body>
 </html>
